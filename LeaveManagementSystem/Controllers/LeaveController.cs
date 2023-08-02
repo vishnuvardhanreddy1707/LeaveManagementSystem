@@ -25,7 +25,7 @@ namespace LeaveManagementSystem.Controllers
             return Ok(_leaveS.DeleteLeave(LeaveId));
         }
         [HttpPut("UpdateLeave")]
-        public IActionResult UpdateCourse(Leave leave)
+        public IActionResult UpdateLeave(Leave leave)
         {
             return Ok(_leaveS.UpdateLeave(leave));
         }
