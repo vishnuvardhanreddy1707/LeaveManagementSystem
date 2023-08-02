@@ -10,10 +10,10 @@ namespace LeaveManagementSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required(ErrorMessage = "ID will be automatically generated")]
         public int LeaveId { get; set; }
-        [ForeignKey("Employee")]
-        [Required(ErrorMessage = "Employee Id is required")]
+       // [ForeignKey("Employee")]
+        //Required(ErrorMessage = "Employee Id is required")]
         public int EmployeeId { get; set; }
-        public Employee Employee { get; set; }
+       // public Employee Employee { get; set; }
         public string EmployeeName { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }

@@ -10,9 +10,9 @@ namespace LeaveManagementSystem.Models
         [Required(ErrorMessage = "ID will be automatically generated")]
         public int EmployeeId { get; set; }
         public string EmployeeName { get; set; } 
-        public int EmployeeDOB { get; set; }
+        public string EmployeeDOB { get; set; }
         public string Email{ get; set; }
         public string password { get; set; }
-        public ICollection<Leave> Leaves { get; set; } // Navigation property
+       // public ICollection<Leave> Leaves { get; set; } // Navigation property
     }
 }
