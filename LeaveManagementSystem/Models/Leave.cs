@@ -19,6 +19,8 @@ namespace LeaveManagementSystem.Models
         public string EndDate { get; set; }
         public string LeaveName { get; set; }
         public string LeaveDescription { get; set;}
+        public string status { get; set; } = "submitted";
+        public string StatusDescription { get; set; }
 
 
 

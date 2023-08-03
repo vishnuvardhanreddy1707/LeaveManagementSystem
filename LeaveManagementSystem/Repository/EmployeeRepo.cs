@@ -71,6 +71,20 @@ namespace LeaveManagementSystem.Repository
             return employee;
         }
 
+        public Employee GetEmployeebyEmail(string Email)
+        {
+            Employee email = null;
+            try
+            {
+                email = _dbContext.Employees.FirstOrDefault(q => q.Email == Email);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return email;
+        }
+
         public List<Employee> SearchEmplyee(int EmployeeID)
         {
             List<Employee> employee = null;

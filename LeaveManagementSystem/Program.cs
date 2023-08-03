@@ -2,8 +2,11 @@ using LeaveManagementSystem.DATA;
 using LeaveManagementSystem.Interfaces;
 using LeaveManagementSystem.Repository;
 using LeaveManagementSystem.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 //builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAuthentication(opt =>
+{
+    opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = false,
+        ValidateAudience = false,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "https://localhost:7181",
+        ClockSkew = TimeSpan.Zero,
+        ValidAudiences = new List<string>
+                        {
+                            "https://localhost:7181",
+                            "https://localhost:4200"
+                        },
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("55f6UmNJfrbdi8It"))
+    };
+});
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<LeaveDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("LeaveManagementSystemConnectionString")));
 
@@ -44,6 +71,7 @@ app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Task v1"));
 }
+app.UseAuthentication();
 
 app.UseAuthorization();
 

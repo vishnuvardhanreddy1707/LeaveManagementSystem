@@ -32,5 +32,9 @@ namespace LeaveManagementSystem.Services
             return _employee.SearchEmplyee(EmployeeID);
         }
 
+        public Employee GetEmployeebyEmail(string Email)
+        {
+            return _employee.GetEmployeebyEmail(Email);
+        }
     }
 }
