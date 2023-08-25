@@ -27,9 +27,9 @@ namespace LeaveManagementSystem.Services
         {
             return _employee.GetAllEmployees();
         }
-        public List<Employee> SearchEmplyee(int EmployeeID)
+        public Employee GetEmployee(int EmployeeID)
         {
-            return _employee.SearchEmplyee(EmployeeID);
+            return _employee.GetEmployee(EmployeeID);
         }
 
         public Employee GetEmployeebyEmail(string Email)

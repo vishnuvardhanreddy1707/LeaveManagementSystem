@@ -71,6 +71,20 @@ namespace LeaveManagementSystem.Repository
             return employee;
         }
 
+        public Employee GetEmployee(int EmployeeId)
+        {
+            Employee employee = null;
+            try
+            {
+                employee = _dbContext.Employees.Find(EmployeeId);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return employee;
+        }
+
         public Employee GetEmployeebyEmail(string Email)
         {
             Employee email = null;
@@ -85,7 +99,7 @@ namespace LeaveManagementSystem.Repository
             return email;
         }
 
-        public List<Employee> SearchEmplyee(int EmployeeID)
+       /* public List<Employee> SearchEmplyee(int EmployeeID)
         {
             List<Employee> employee = null;
             var getemployee = _dbContext.Employees.Where(v => v.EmployeeId == EmployeeID);
@@ -103,7 +117,7 @@ namespace LeaveManagementSystem.Repository
                 throw;
             }
             return employee;
-        }
+        }*/
 
         public string UpdateEmployee(Employee employee)
         {

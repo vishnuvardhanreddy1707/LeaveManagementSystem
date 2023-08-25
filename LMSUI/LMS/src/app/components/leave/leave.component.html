@@ -1,0 +1,130 @@
+
+<body>
+    <div class="container">
+      <div class="heading">Apply Leave</div>
+      
+      <br>
+      <form action="#">
+        <div class="card-details">
+          <form [formGroup]="ApplyLeaveForm" (ngSubmit)="AddLeave()">
+            
+            
+            <div class="card-details2">
+    
+              <div class="card-box">
+                <label class="form-label" for="startDate">Start Date</label>
+                <input type="text" id="startDate" class="form-control" formControlName="startDate"/>
+                        
+                        <div *ngIf="f['startDate'].touched && f['startDate'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['startDate'].errors && f['startDate'].errors['required']">Start Date is required.</div>
+                          
+              </div></div>
+    
+              <div class="card-box">
+                <span class="form-label" for="endDate">End Date</span>
+                <input type="text" id="endDate" class="form-control" formControlName="endDate"/>
+                      
+                        <div *ngIf="f['endDate'].touched && f['endDate'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['endDate'].errors && f['endDate'].errors['required']">Last Name is required.</div>
+                        
+                        </div>
+              </div>
+    
+            </div>
+            <div class="card-details3">
+              
+            
+    
+            
+                <div class="card-box">
+                  <label class="form-label" for="leaveName">Leave Type</label>
+                  <input type="text" id="leaveName" class="form-control" formControlName="leaveName"/>
+                        
+                        <div *ngIf="f['leaveName'].touched && f['leaveName'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['leaveName'].errors && f['leaveName'].errors['required']"> Select the type of leave</div>
+                          
+                        </div>
+        
+                </div>
+                <div class="card-box">
+                  <label class="form-label" for="leaveDescription">Leave Description</label>
+                  <input type="text" id="leaveDescription" class="form-control" formControlName="leaveDescription"/>
+                        
+                        <div *ngIf="f['leaveDescription'].touched && f['leaveDescription'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['leaveDescription'].errors && f['leaveDescription'].errors['required']"> is required.</div>
+                        </div>
+        
+                </div>
+        
+                
+        
+                
+                        
+                
+            </div>
+            <!-- <div class="card-details1"> -->
+              <!-- <div class="card-box">
+                <form action="/action_page.php">
+                <label for="state" class="form-label" >Choose your state:</label>
+                    <select name="state" id="state" class="form-control" formControlName="state">
+                      
+                        <option value="Andhra">Andhra Pradesh</option>
+                        <option value="Telengana">Telengana</option>
+                        <option value="Andhra">TamilNadu</option>
+                        <option value="Telengana">Kerla</option>
+                        <option value="Andhra">Karnataka</option>
+                        <option value="Telengana">Maharastra</option>
+                        <option value="Andhra">odissa</option>
+                        <option value="Telengana">Westbengal</option>
+                    
+                    </select>
+                  </form>
+                  <div *ngIf="f['state'].touched && f['state'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['state'].errors && f['state'].errors['required']">State is required.</div>
+            </div>
+    
+              </div> -->
+              <!-- <div class="card-box">
+                <label class="form-label" for="city"> city</label>
+                <input type="text" id="city" class="form-control" formControlName="city"/>
+                    
+                    <div *ngIf="f['city'].touched && f['city'].invalid" class="alert alert-danger">
+                      <div *ngIf="f['city'].errors && f['city'].errors['required']">City is required.</div>
+              </div>
+              </div> -->
+              
+              <!-- <div class="card-box">
+                <label class="form-label" for="dob">Date of Birth</label>
+                <input type="date" id="dob" class="form-control" formControlName="dob"/>
+                        <div *ngIf="f['dob'].touched && f['dob'].invalid" class="alert alert-danger">
+                          <div *ngIf="f['dob'].errors && f['dob'].errors['required']">Date Of Birth is required.</div>
+                          
+                        </div>
+              </div> -->
+            <!-- </div> -->
+            <!-- <div class="circal-form">
+              
+              <label class="mr-2" for="gender">Gender</label>
+              <div class="category">
+                <input id="male" type="radio" value="Male" name="gender" formControlName="gender">
+                <label for="male">Male</label>
+                <input id="female" type="radio" value="Female" name="gender" formControlName="gender">
+                    <label for="female">Female</label>
+                    <input id="others" type="radio" value="Others" name="gender" formControlName="gender">
+                    <label for="others">Others</label>
+                    <div *ngIf="f['gender'].touched && f['gender'].invalid" class="alert alert-danger"></div>
+                    <div *ngIf="f['gender'].errors && f['gender'].errors['required']">Gender is required.</div>
+              </div>
+              
+            </div> -->
+            <div class="button" >
+              <input type="submit" value="Register" [disabled]="ApplyLeaveForm.invalid">
+            </div>
+            
+            <!-- <button type="submit" class="btn btn-primary my-7">Submit</button> -->
+          </form>
+        </div>
+      </form>
+    </div>
+    
+    </body>

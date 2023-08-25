@@ -1,6 +1,7 @@
 ﻿using LeaveManagementSystem.Interfaces;
 using LeaveManagementSystem.Models;
 using LeaveManagementSystem.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -40,9 +41,14 @@ namespace LeaveManagementSystem.Controllers
             return _employeeS.GetAllEmployees();
         }
         [HttpGet("GetEmployee")]
-        public List<Employee> GetEmployee(int EmployeeId)
+        public IActionResult GetEmployee(int EmployeeId)
         {
-            return _employeeS.SearchEmplyee(EmployeeId);
+            return Ok(_employeeS.GetEmployee(EmployeeId));
+        }
+        [HttpGet("GetEmployeeByEmail")]
+        public IActionResult GetEmployeeByEmail(string Email)
+        {
+            return Ok(_employeeS.GetEmployeebyEmail(Email));
         }
 
 
@@ -78,6 +84,15 @@ namespace LeaveManagementSystem.Controllers
             }
         }
         #endregion
+        [HttpGet("GetUserProfile")]
+        [Authorize]
+        public Employee GetUserProfile()
+        {
+            string employeeId = User.Claims.First(c => c.Type == "EmployeeId").Value;
+            var user =_employeeS.GetEmployee(int.Parse(employeeId));
+            return user;
+        }
+
 
     }
 }

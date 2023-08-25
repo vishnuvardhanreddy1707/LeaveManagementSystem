@@ -9,7 +9,7 @@ namespace LeaveManagementSystem.Interfaces
         public string UpdateEmployee(Employee employee);
         public string DeleteEmployee(int EmployeeId);
         public List<Employee> GetAllEmployees();
-        public List<Employee> SearchEmplyee(int EmployeeID);
+        public Employee GetEmployee(int EmployeeId);
 
     }
 }
