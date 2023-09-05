@@ -1,0 +1,15 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <!-- <a class="navbar-brand text-white">JWT Auth System</a> -->
+  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+</nav>
+
+     <div class="card m-5" style="width:18rem" *ngIf="userDetails">
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Username : </strong>{{userDetails.employeeId}}</li>
+        <li class="list-group-item"><strong>FullName : </strong>{{userDetails.employeeName}}</li>
+        <li class="list-group-item"><strong>Email : </strong>{{userDetails.email}}</li>
+      </ul>
+    </div>  
+    <button (click)="clickAddLeave()" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add Course
+    </button>            
